@@ -1,7 +1,7 @@
 # @Author: Thibault PECH
 # @Date:   2022-01-31 09:26:45
 # @Last Modified by:   Thibault PECH
-# @Last Modified time: 2022-01-31 15:08:47
+# @Last Modified time: 2022-01-31 15:51:39
 # Version du moteur docker compose
 version: "3.9"
 
@@ -11,13 +11,13 @@ services:
     # The official v2 Traefik docker image
     image: traefik:v2.6
     # Enables the web UI and tells Traefik to listen to docker
-    command: --providers.docker
+    #command: --providers.docker
     ports:
       # The HTTP port
       - "80:80"
       - "443:443"
       # The Web UI (enabled by --api.insecure=true)
-      - "8080:8080"
+      #- "8080:8080"
     volumes:
       # So that Traefik can listen to the Docker events
       - /var/run/docker.sock:/var/run/docker.sock:ro

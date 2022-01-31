@@ -373,3 +373,13 @@
 {"entryPointName":"http","level":"error","msg":"close tcp [::]:80: use of closed network connection","time":"2022-01-31T14:28:28Z"}
 {"entryPointName":"https","level":"error","msg":"close tcp [::]:443: use of closed network connection","time":"2022-01-31T14:28:28Z"}
 {"container":"reverse-proxy-https-helper-traefik-53df708638e8da1520dc8928a370a4d68e5d3fef0f29f7b0d52a2bedbbb177d1","level":"error","msg":"service \"reverse-proxy-https-helper-traefik\" error: port is missing","providerName":"docker","time":"2022-01-31T14:28:32Z"}
+{"entryPointName":"http","level":"error","msg":"accept tcp [::]:80: use of closed network connection","time":"2022-01-31T14:50:08Z"}
+{"entryPointName":"https","level":"error","msg":"accept tcp [::]:443: use of closed network connection","time":"2022-01-31T14:50:08Z"}
+{"entryPointName":"https","level":"error","msg":"close tcp [::]:443: use of closed network connection","time":"2022-01-31T14:50:08Z"}
+{"entryPointName":"http","level":"error","msg":"close tcp [::]:80: use of closed network connection","time":"2022-01-31T14:50:08Z"}
+{"container":"reverse-proxy-https-helper-traefik-53df708638e8da1520dc8928a370a4d68e5d3fef0f29f7b0d52a2bedbbb177d1","level":"error","msg":"service \"reverse-proxy-https-helper-traefik\" error: port is missing","providerName":"docker","time":"2022-01-31T14:52:20Z"}
+{"entryPointName":"https","level":"error","msg":"accept tcp [::]:443: use of closed network connection","time":"2022-01-31T14:52:52Z"}
+{"entryPointName":"http","level":"error","msg":"accept tcp [::]:80: use of closed network connection","time":"2022-01-31T14:52:52Z"}
+{"entryPointName":"http","level":"error","msg":"close tcp [::]:80: use of closed network connection","time":"2022-01-31T14:52:52Z"}
+{"entryPointName":"https","level":"error","msg":"close tcp [::]:443: use of closed network connection","time":"2022-01-31T14:52:52Z"}
+{"container":"reverse-proxy-https-helper-traefik-53df708638e8da1520dc8928a370a4d68e5d3fef0f29f7b0d52a2bedbbb177d1","level":"error","msg":"service \"reverse-proxy-https-helper-traefik\" error: port is missing","providerName":"docker","time":"2022-01-31T14:54:13Z"}

@@ -1,7 +1,7 @@
 # @Author: Thibault PECH
 # @Date:   2022-01-31 10:49:29
 # @Last Modified by:   Thibault PECH
-# @Last Modified time: 2022-01-31 15:15:18
+# @Last Modified time: 2022-01-31 15:54:05
 logLevel: INFO
 
 api:
@@ -12,6 +12,11 @@ api:
 entryPoints:
   http:
     address: ":80"
+    http:
+      redirections:
+        entryPoint:
+          to: https
+
 
   https:
     address: ":443"
