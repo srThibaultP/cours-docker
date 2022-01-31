@@ -1,7 +1,7 @@
 # @Author: Thibault PECH
 # @Date:   2022-01-31 08:50:36
 # @Last Modified by:   Thibault PECH
-# @Last Modified time: 2022-01-31 15:10:28
+# @Last Modified time: 2022-01-31 15:29:10
 # Version du moteur docker compose
 version: "3.9"
 
@@ -55,8 +55,10 @@ services:
       - "traefik.http.routers.tpwp.rule=Host(`wp.traefik.me`)"
       - "traefik.http.routers.tpwp-tls.tls.domains[0].main=wp.traefik.me"
       - "traefik.http.routers.tpwp-tls.tls.domains[0].sans=wp-*.traefik.me"
-      - "traefik.http.middlewares.tpwp.ratelimit.average=100"
-      - "traefik.http.middlewares.tpwp.ratelimit.burst=50"
+      - "traefik.http.middlewares.tpwp-rl.ratelimit.average=2"
+      - "traefik.http.middlewares.tpwp-rl.ratelimit.burst=2"
+      - "traefik.http.routers.tpwp.middlewares=tpwp-rl@docker"
+      - "traefik.http.routers.tpwp-tls.middlewares=tpwp-rl@docker"
     
     networks:
       - traefik-proxy
