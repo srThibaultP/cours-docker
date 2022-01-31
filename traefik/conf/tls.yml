@@ -1,0 +1,13 @@
+# @Author: Thibault PECH
+# @Date:   2022-01-31 12:01:50
+# @Last Modified by:   Thibault PECH
+# @Last Modified time: 2022-01-31 12:01:54
+tls:
+  stores:
+    default:
+      defaultCertificate:
+        certFile: /etc/ssl/traefik/cert.pem
+        keyFile: /etc/ssl/traefik/privkey.pem
+  certificates:
+    - certFile: /etc/ssl/traefik/cert.pem
+      keyFile: /etc/ssl/traefik/privkey.pem

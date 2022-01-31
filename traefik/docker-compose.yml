@@ -1,0 +1,50 @@
+# @Author: Thibault PECH
+# @Date:   2022-01-31 09:26:45
+# @Last Modified by:   Thibault PECH
+# @Last Modified time: 2022-01-31 12:03:03
+# Version du moteur docker compose
+version: "3.9"
+
+# Les conteneurs à démarrer
+services: 
+  thibaultp-reverse-proxy:
+    # The official v2 Traefik docker image
+    image: traefik:v2.6
+    # Enables the web UI and tells Traefik to listen to docker
+    command: --api.insecure=true --providers.docker
+    ports:
+      # The HTTP port
+      - "80:80"
+      - "443:443"
+      # The Web UI (enabled by --api.insecure=true)
+      - "8080:8080"
+    volumes:
+      # So that Traefik can listen to the Docker events
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./conf/traefik.yml:/etc/traefik/traefik.yml
+      - ./log:/log
+      - certs:/etc/ssl/traefik
+      - ./conf/tls.yml:/etc/traefik/tls.yml
+    networks:
+      - traefik-proxy
+    labels:
+      - "traefik.http.services.traefik.loadbalancer.server.port=8080"
+      #- "traefik.enable=true"
+      #- "traefik.http.router.traefik.entrypoints=websecured"
+      #- "trafik.http.routers.traefik.rule=Host(`dashboard.traefik.me`)"
+      #- "traefik.http.routers.traefik.service=api@internal"
+
+  reverse-proxy-https-helper:
+    image: alpine
+    command: sh -c "cd /etc/ssl/traefik
+      && wget traefik.me/cert.pem -O cert.pem
+      && wget traefik.me/privkey.pem -O privkey.pem"
+    volumes:
+      - certs:/etc/ssl/traefik
+      
+networks:
+  traefik-proxy:
+    external: true
+
+volumes:
+  certs:
