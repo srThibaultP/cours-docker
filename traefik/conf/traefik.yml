@@ -1,17 +1,18 @@
 # @Author: Thibault PECH
 # @Date:   2022-01-31 10:49:29
 # @Last Modified by:   Thibault PECH
-# @Last Modified time: 2022-01-31 12:06:29
+# @Last Modified time: 2022-01-31 15:09:42
 logLevel: INFO
 
 api:
-  insecure: true
+  #insecure: true
   dashboard: true
   debug: true
 
 entryPoints:
   http:
     address: ":80"
+
   https:
     address: ":443"
 
@@ -22,7 +23,7 @@ providers:
     endpoint: unix:///var/run/docker.sock
     watch: true
     exposedByDefault: true
-    defaultRule: "HostRegexp(`{{ index .Labels \"com.docker.compose.service\"}}.traefik.me`,`{{ index .Labels \"com.docker.compose.service\"}}-{dashed-ip:.*}.traefik.me`)"
+    #defaultRule: "HostRegexp(`{{ index .Labels \"com.docker.compose.service\"}}.traefik.me`,`{{ index .Labels \"com.docker.compose.service\"}}-{dashed-ip:.*}.traefik.me`)"
 
 log:
   level: "ERROR"
